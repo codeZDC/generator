@@ -79,6 +79,8 @@ public class Dao {
 			rs = stmt.executeQuery();
 			if (rs.next()) {
 				table.setEntityStrName(rs.getString("TABLE_COMMENT"));
+            }else{
+            	throw new RuntimeException("MYSQL 中没有相应的表("+tableName+")");
             }
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -161,6 +163,8 @@ public class Dao {
 			rs = stmt.executeQuery();
 			if (rs.next()) {
 				table.setEntityStrName(rs.getString("comments"));
+            }else{
+            	throw new RuntimeException("Oracle 中没有相应的表("+tableName.toUpperCase()+")");
             }
 		} catch (SQLException e) {
 			e.printStackTrace();
