@@ -183,7 +183,7 @@ public class Dao {
 	public static List<Column> findColumn_oracle(String tableName,String schema){
 		String sql = "select t2.COMMENTS ,t.* from user_tab_columns t left  "
 				+ "join user_col_comments t2 on t.COLUMN_NAME=t2.COLUMN_NAME and t.Table_Name = t2.Table_Name "
-				+ "where t.Table_Name=? ";
+				+ "where t.Table_Name=? order by t.COLUMN_ID ";
 		Connection conn = getConnection();
 		PreparedStatement stmt = null;
         ResultSet rs = null;
