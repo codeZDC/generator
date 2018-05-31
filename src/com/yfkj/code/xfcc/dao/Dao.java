@@ -162,7 +162,7 @@ public class Dao {
 			stmt.setString(1, tableName.toUpperCase());
 			rs = stmt.executeQuery();
 			if (rs.next()) {
-				table.setEntityStrName(rs.getString("comments"));
+				table.setEntityStrName(rs.getString("comments")==null?"":rs.getString("comments"));
             }else{
             	throw new RuntimeException("Oracle 中没有相应的表("+tableName.toUpperCase()+")");
             }

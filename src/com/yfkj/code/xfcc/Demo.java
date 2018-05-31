@@ -29,4 +29,10 @@ public class Demo {
 		 String result = BeanHump.underlineToCamel("_wo_ai_ni");
 		 System.out.println(result);
 	}
+	
+	@Test
+	public void test(){
+		
+		"das".replaceAll("s", "");
+	}
 }

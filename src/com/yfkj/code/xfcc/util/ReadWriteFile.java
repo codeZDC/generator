@@ -93,6 +93,12 @@ public class ReadWriteFile {
      * @param str    替换的内容
      */
     public void getReplace(String target,String str){
+    	/*当str为空的时候就会抛出异常
+    	 * 	oracle: 表没写备注的时候备注为null,dao处已经处理了,由于主键取的第一个字段,所以不写主键也有值
+    	 * 	mysql: 表没写备注的时候备注为空字符串,但是取主键是按类型pri取,所以没有主键就会抛异常*/
+    	if(str == null){
+   			System.out.println("替换" + target +"的值为空(null)");
+    	}
     	String o = readStr.toString().replaceAll(target, str);
     	readStr = new StringBuilder();
     	readStr.append(o);
